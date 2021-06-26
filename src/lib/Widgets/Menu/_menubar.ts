@@ -116,7 +116,7 @@ class Menubar {
 	}
 
 	setFocusToPreviousItem(currentItem: MenubarItem): void {
-		let newItem;
+		let newItem: MenubarItem;
 
 		if (currentItem === this.firstItem) {
 			newItem = this.lastItem;
@@ -129,7 +129,7 @@ class Menubar {
 	}
 
 	setFocusToNextItem(currentItem: MenubarItem): void {
-		let newItem;
+		let newItem: MenubarItem;
 
 		if (currentItem === this.lastItem) {
 			newItem = this.firstItem;

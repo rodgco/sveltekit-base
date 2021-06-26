@@ -8,7 +8,7 @@ import PopupMenu from './_popupmenu';
 class MenuItem {
 	domNode: HTMLElement;
 	menu: PopupMenu;
-	popupMenu: boolean | PopupMenu;
+	popupMenu: null | PopupMenu;
 	hasFocus: boolean;
 	hasHover: boolean;
 	isMenubarItem: boolean;
@@ -21,7 +21,7 @@ class MenuItem {
 
 		this.domNode = domNode;
 		this.menu = menuObj;
-		this.popupMenu = false;
+		this.popupMenu = null;
 		this.isMenubarItem = false;
 
 		this.hasFocus = false;
@@ -120,18 +120,18 @@ class MenuItem {
 				break;
 
 			case this.keyCode.LEFT:
-				(<PopupMenu>this.menu).setFocusToController('previous');
-				(<PopupMenu>this.menu).close(true);
+				this.menu.setFocusToController('previous');
+				this.menu.close(true);
 				flag = true;
 				break;
 
 			case this.keyCode.RIGHT:
-				if (this.popupMenu && typeof this.popupMenu !== 'boolean') {
+				if (this.popupMenu) {
 					this.popupMenu.open();
 					this.popupMenu.setFocusToFirstItem();
 				} else {
-					(<PopupMenu>this.menu).setFocusToController('next');
-					(<PopupMenu>this.menu).close(true);
+					this.menu.setFocusToController('next');
+					this.menu.close(true);
 				}
 				flag = true;
 				break;
@@ -200,14 +200,14 @@ class MenuItem {
 		this.menu.hasHover = true;
 		this.hasHover = true;
 		this.menu.open();
-		if (this.popupMenu && typeof this.popupMenu !== 'boolean') {
+		if (this.popupMenu) {
 			this.popupMenu.hasHover = true;
 			this.popupMenu.open();
 		}
 	}
 
 	handleMouseout(): void {
-		if (this.popupMenu && typeof this.popupMenu !== 'boolean') {
+		if (this.popupMenu) {
 			this.popupMenu.hasHover = false;
 			this.popupMenu.close(true);
 		}

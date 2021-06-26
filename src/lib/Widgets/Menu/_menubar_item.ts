@@ -8,7 +8,7 @@ import PopupMenu from './_popupmenu';
 class MenubarItem {
 	menu: Menubar;
 	domNode: HTMLElement;
-	popupMenu: boolean | PopupMenu;
+	popupMenu: null | PopupMenu;
 	hasFocus: boolean;
 	hasHover: boolean;
 	isMenubarItem: boolean;
@@ -17,7 +17,7 @@ class MenubarItem {
 	constructor(domNode: HTMLElement, menuObj: Menubar) {
 		this.menu = menuObj;
 		this.domNode = domNode;
-		this.popupMenu = false;
+		this.popupMenu = null;
 
 		this.hasFocus = false;
 		this.hasHover = false;
@@ -72,26 +72,32 @@ class MenubarItem {
 			case this.keyCode.RETURN:
 			case this.keyCode.DOWN:
 				if (this.popupMenu) {
-					(<PopupMenu>this.popupMenu).open();
-					(<PopupMenu>this.popupMenu).setFocusToFirstItem();
+					this.popupMenu.open();
+					this.popupMenu.setFocusToFirstItem();
 					flag = true;
 				}
 				break;
 
 			case this.keyCode.LEFT:
+				if (this.popupMenu) {
+					this.popupMenu.close(true);
+				}
 				this.menu.setFocusToPreviousItem(this);
 				flag = true;
 				break;
 
 			case this.keyCode.RIGHT:
+				if (this.popupMenu) {
+					this.popupMenu.close(true);
+				}
 				this.menu.setFocusToNextItem(this);
 				flag = true;
 				break;
 
 			case this.keyCode.UP:
 				if (this.popupMenu) {
-					(<PopupMenu>this.popupMenu).open();
-					(<PopupMenu>this.popupMenu).setFocusToLastItem();
+					this.popupMenu.open();
+					this.popupMenu.setFocusToLastItem();
 					flag = true;
 				}
 				break;
@@ -109,7 +115,7 @@ class MenubarItem {
 				break;
 
 			case this.keyCode.TAB:
-				(<PopupMenu>this.popupMenu).close(true);
+				this.popupMenu.close(true);
 				break;
 
 			case this.keyCode.ESC:
