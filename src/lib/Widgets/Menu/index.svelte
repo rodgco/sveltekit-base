@@ -6,7 +6,7 @@
 	const menu = [
 		{
 			title: 'About',
-			href: '/about',
+			href: '#',
 			popup: [
 				{
 					title: 'Overview',
@@ -56,7 +56,7 @@
 		},
 		{
 			title: 'Admissions',
-			href: '/admissions',
+			href: '#',
 			popup: [
 				{
 					title: 'Apply',

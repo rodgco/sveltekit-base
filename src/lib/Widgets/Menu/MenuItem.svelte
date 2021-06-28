@@ -17,7 +17,9 @@
 		<li role="separator" />
 	{:else}
 		<li role="none">
-			<a role="menuitem" {...popupAria(item.popup)} href={item.href} tabindex={first ? 0 : -1}>{item.title}</a>
+			<a role="menuitem" {...popupAria(item.popup)} href={item.href} tabindex={first ? 0 : -1}
+				>{item.title}</a
+			>
 			{#if item.popup}
 				<ul role="menu" aria-label="About">
 					<svelte:self menu={item.popup} first="false" />

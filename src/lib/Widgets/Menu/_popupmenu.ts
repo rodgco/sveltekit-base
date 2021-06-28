@@ -239,7 +239,7 @@ class PopupMenu {
 		for (let i = 0; i < this.menuitems.length; i++) {
 			const mi = this.menuitems[i];
 			if (mi.popupMenu) {
-				hasFocus = hasFocus || (<PopupMenu>mi.popupMenu).hasFocus;
+				hasFocus = hasFocus || mi.popupMenu.hasFocus;
 			}
 		}
 
