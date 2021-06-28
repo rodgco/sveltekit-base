@@ -154,12 +154,12 @@ class MenubarItem {
 
 	handleMouseover(): void {
 		this.hasHover = true;
-		(<PopupMenu>this.popupMenu).open();
+		this.popupMenu?.open();
 	}
 
 	handleMouseout(): void {
 		this.hasHover = false;
-		setTimeout((<PopupMenu>this.popupMenu).close.bind(this.popupMenu, false), 300);
+		setTimeout(this.popupMenu?.close.bind(this.popupMenu, false), 300);
 	}
 }
 
