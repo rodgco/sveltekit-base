@@ -1,5 +1,5 @@
 <script>
-	import { Menu } from '$lib/Widgets';
+	import { Menu } from '$lib/widgets';
 </script>
 
 <header>
