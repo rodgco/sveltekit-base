@@ -120,8 +120,8 @@ class MenuItem {
 				break;
 
 			case this.keyCode.LEFT:
-				this.menu.setFocusToController('previous');
 				this.menu.close(true);
+				this.menu.setFocusToController('previous');
 				flag = true;
 				break;
 
@@ -130,8 +130,8 @@ class MenuItem {
 					this.popupMenu.open();
 					this.popupMenu.setFocusToFirstItem();
 				} else {
-					this.menu.setFocusToController('next');
 					this.menu.close(true);
+					this.menu.setFocusToController('next');
 				}
 				flag = true;
 				break;

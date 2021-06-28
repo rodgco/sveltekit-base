@@ -144,7 +144,7 @@
 
 <style>
 	ul[role='menubar'] {
-		margin: 10px;
+		margin: 0;
 		padding: 10px;
 		font-size: 110%;
 		list-style: none;
@@ -171,11 +171,20 @@
 	ul[role='menubar'] :global([role='separator']:hover) {
 		background-color: black;
 		color: white;
+		outline: none;
 	}
 
 	ul[role='menubar'] :global(a[role='menuitem']) {
 		text-decoration: none;
 		color: black;
+	}
+
+	ul[role='menubar'] > :global(li > [aria-expanded='true']) {
+		border-bottom: 2px solid black;
+	}
+
+	ul[role='menubar'] :global([role='menu'] [aria-expanded='true']) {
+		border-left: 2px solid black;
 	}
 
 	ul[role='menubar'] :global(li) {
