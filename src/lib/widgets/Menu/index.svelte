@@ -68,7 +68,7 @@
 	}
 
 	ul[role='menubar'] > :global(li > a[aria-haspopup='true']::after) {
-		content: url('../images/down-arrow-brown.png');
+		content: url('/icons/CarretDown.svg?width=12px&color=%23123456');
 		padding-left: 0.25em;
 	}
 
@@ -87,7 +87,7 @@
 	}
 
 	ul[role='menubar'] :global(ul[role='menu'] a[aria-haspopup='true']::after) {
-		content: url('../images/right-arrow-brown.png');
-		padding-right: 2em;
+		content: url('/icons/CarretRight.svg?height=1rem&color=%23123456');
+		padding-left: 0.25em;
 	}
 </style>
