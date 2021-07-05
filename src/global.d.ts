@@ -4,3 +4,8 @@
 interface Locals {}
 
 interface Session {}
+
+interface ActionReturn {
+	update?: (parameters: any) => void;
+	destroy?: () => void;
+}
